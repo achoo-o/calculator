@@ -12,8 +12,8 @@ Things I have not coded:
 
 ### To do
 
-- [] Round decimal answers
-- [] Add CLEAR function
-- [] Add CSS
+- [ ] Round decimal answers
+- [ ] Add CLEAR function
+- [ ] Add CSS
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
