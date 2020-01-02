@@ -1,0 +1,24 @@
+body {
+    background-color: grey;
+}
+
+#grid {
+    display: grid;
+}
+
+#display {
+    grid-row-start: 1;
+    height: 30px;
+}
+
+.firstRow {
+    grid-row-start: 2;
+}
+
+.secondRow {
+    grid-row-start: 3;
+}
+
+.thirdRow {
+    grid-row-start: 4;
+}
