@@ -2,6 +2,12 @@
 
 ## Work In Progress
 
+### To do
+
+- [ ] Round decimal answers
+- [ ] Add CLEAR function
+- [ ] Add CSS
+
 ### Issues
 
 Things I have not coded:
@@ -9,11 +15,5 @@ Things I have not coded:
 * +/- (change to pos/neg) -- this may not be implemented
 * < (backspace) -- optional
 * C (clear)
-
-### To do
-
-- [ ] Round decimal answers
-- [ ] Add CLEAR function
-- [ ] Add CSS
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
