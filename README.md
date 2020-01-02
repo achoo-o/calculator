@@ -4,6 +4,7 @@
 
 ### To do
 
+- [ ] Display answer in calculator
 - [ ] Round decimal answers
 - [ ] Add CLEAR function
 - [ ] Add CSS
