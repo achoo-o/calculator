@@ -2,6 +2,7 @@ let display = document.getElementById("display");
 let num = document.getElementsByClassName("calcButton");
 let displayValue = "";
 let err = "Cannot be divided by 0";
+let sum = 0;
 
 for (let i = 0; i < num.length; i++) {
     num[i].addEventListener('click', buttonEvent);
@@ -9,12 +10,21 @@ for (let i = 0; i < num.length; i++) {
 
 function buttonEvent(e) {
     if (e.target.value == '=') {
-        let sum = calculate();
+        sum = calculate();
         displayValue = sum;
     } else if(e.target.value == "+/-") {
     } else if (e.target.value == "clear") {
         displayValue = "0";
     } else if (e.target.value == "<") {
+        //Erases most recent input if writing an equation
+        if (displayValue != "" && displayValue != sum) {
+            let arr = displayValue.split("")
+            arr.pop();
+            displayValue = arr.join("");
+        //If used on an answer of an equation, will erase whole answer
+        } else if (displayValue != "") {
+            displayValue = "0";
+        }
     } else if (displayValue == '0' || displayValue == err) {
         displayValue = e.target.value;
     } else {
@@ -32,7 +42,7 @@ function calculate() {
     let num = [];
     let op = [];
     let i = 0;
-    let sum = 0;
+    sum = 0;
     
     let eachVal = displayValue.split("");
     eachVal.forEach(x => {
