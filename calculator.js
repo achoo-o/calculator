@@ -1,28 +1,30 @@
 let display = document.getElementById("display");
 let num = document.getElementsByClassName("calcButton");
 let displayValue = "";
+let err = "Cannot be divided by 0";
 
 for (let i = 0; i < num.length; i++) {
-    num[i].addEventListener('click', changeDisplay);
+    num[i].addEventListener('click', buttonEvent);
 }
 
-function changeDisplay(e) {
+function buttonEvent(e) {
     if (e.target.value == '=') {
         let sum = calculate();
         displayValue = sum;
-        display.innerHTML = sum;
     } else if(e.target.value == "+/-") {
     } else if (e.target.value == "clear") {
         displayValue = "0";
-        display.innerHTML = displayValue;
     } else if (e.target.value == "<") {
-    } else if (displayValue == '0') {
+    } else if (displayValue == '0' || displayValue == err) {
         displayValue = e.target.value;
-        display.innerHTML = displayValue;
     } else {
         displayValue += e.target.value;
-        display.innerHTML = displayValue;
     }
+    changeDisplay(displayValue);
+}
+
+function changeDisplay(toDisplay) {
+    display.innerHTML = toDisplay;
 }
 
 //sorts user input & calculates ans
@@ -34,7 +36,7 @@ function calculate() {
     
     let eachVal = displayValue.split("");
     eachVal.forEach(x => {
-        if (isNaN(x) == false) {
+        if (isNaN(x) == false || x == ".") {
             //check if arr empty && if index has changed i.e new number
             (num.length > 0) && (i == num.length - 1) ? num[i] += x : num.push(x);
         } else {
@@ -44,11 +46,18 @@ function calculate() {
     });
     
     for (let j = 0; j < op.length; j++) {
-        if (j == 0) {
-            sum = operate(num[j], num[j+1], op[j]);
+        //checks if user divided by 0
+        if (num[j+1] == '0' && op[j] == '/') {
+            sum = err;
+            break;
         } else {
-            sum = operate(sum, num[j+1], op[j])
+              if (j == 0) {
+                sum = operate(num[j], num[j+1], op[j]);
+            } else {
+                sum = operate(sum, num[j+1], op[j])
+            }  
         }
+        
     }
     
     return sum;
