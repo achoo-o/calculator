@@ -6,7 +6,7 @@
 
 - [ ] Display answer in calculator
 - [ ] Round decimal answers
-- [ ] Add CLEAR function
+- [x] Add CLEAR function
 - [ ] Add CSS
 
 ### Issues
