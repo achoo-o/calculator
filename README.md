@@ -10,12 +10,9 @@
 - [ ] Add CSS
 
 ### Issues
-
-Things I have not coded:
-* Decimal -- optional
-* +/- (change to pos/neg) -- this may not be implemented
-* < (backspace) -- optional
-* C (clear)
+* Decimal (not coded -- optional)
+* +/- (change to pos/neg) (not coded & this may not be implemented)
+* < (backspace) -- (not coded -- optional)
 * Errors occur when operator has no number before &/or after a number
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
