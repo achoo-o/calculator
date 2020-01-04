@@ -1,8 +1,8 @@
 let display = document.getElementById("display");
 let num = document.getElementsByClassName("calcButton");
 let displayValue = "";
-let err = "Cannot be divided by 0";
 let sum = 0;
+let err = "Cannot be divided by 0";
 
 for (let i = 0; i < num.length; i++) {
     num[i].addEventListener('click', buttonEvent);
@@ -12,11 +12,21 @@ function buttonEvent(e) {
     if (e.target.value == '=') {
         sum = calculate();
         displayValue = sum;
+    } else if(e.target.value == "+" || e.target.value == "-" || e.target.value == "*" || e.target.value == "/") {
+        if (notOperator() == true) {
+            displayValue += e.target.value;
+        } else {
+            let arr = displayValue.split("");
+            arr.pop();
+            arr.push(e.target.value);
+            displayValue = arr.join("");
+            
+        }
     } else if(e.target.value == "+/-") {
     } else if (e.target.value == "clear") {
         displayValue = "0";
     } else if (e.target.value == "<") {
-        //Erases most recent input if writing an equation
+        //Erases most recent input
         if (displayValue != "" && displayValue != sum) {
             let arr = displayValue.split("");
             arr.pop();
@@ -31,6 +41,18 @@ function buttonEvent(e) {
         displayValue += e.target.value;
     }
     changeDisplay(displayValue);
+}
+
+function notOperator() {
+    let strSplit = displayValue.split("");
+    let operators = ["+","-","*","/"];
+    
+    for (let key in operators) {
+        if (operators[key] == strSplit[strSplit.length - 1]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function changeDisplay(toDisplay) {
