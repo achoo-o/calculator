@@ -18,7 +18,7 @@ function buttonEvent(e) {
     } else if (e.target.value == "<") {
         //Erases most recent input if writing an equation
         if (displayValue != "" && displayValue != sum) {
-            let arr = displayValue.split("")
+            let arr = displayValue.split("");
             arr.pop();
             displayValue = arr.join("");
         //If used on an answer of an equation, will erase whole answer
@@ -64,7 +64,7 @@ function calculate() {
               if (j == 0) {
                 sum = operate(num[j], num[j+1], op[j]);
             } else {
-                sum = operate(sum, num[j+1], op[j])
+                sum = operate(sum, num[j+1], op[j]);
             }  
         }
         
