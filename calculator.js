@@ -55,22 +55,25 @@ function calculate() {
         }
     });
     
-    for (let j = 0; j < op.length; j++) {
-        //checks if user divided by 0
-        if (num[j+1] == '0' && op[j] == '/') {
-            sum = err;
-            break;
-        } else {
-              if (j == 0) {
-                sum = operate(num[j], num[j+1], op[j]);
+    if(op.length === 0){
+        sum = displayValue;
+        return displayValue;
+    } else {
+        for (let j = 0; j < op.length; j++) {
+            //checks if user divided by 0
+            if (num[j+1] == '0' && op[j] == '/') {
+                sum = err;
+                break;
             } else {
-                sum = operate(sum, num[j+1], op[j]);
-            }  
+                  if (j == 0) {
+                    sum = operate(num[j], num[j+1], op[j]);
+                } else {
+                    sum = operate(sum, num[j+1], op[j]);
+                }  
+            }
         }
-        
+        return sum;
     }
-    
-    return sum;
 }
 
 //calc funcs
