@@ -5,7 +5,7 @@
 ### To do
 
 - [x] Display answer in calculator
-- [ ] Round decimal answers
+- [x] Round decimal answers
 - [x] Add CLEAR function
 - [ ] Add CSS
 
