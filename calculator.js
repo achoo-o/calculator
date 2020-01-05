@@ -1,6 +1,6 @@
 let display = document.getElementById("display");
 let num = document.getElementsByClassName("calcButton");
-let displayValue = [];
+let displayValue = ["0",];
 let err = "Cannot be divided by 0";
 let operators = ["+","-","*","/"];
 let sum;
@@ -21,11 +21,19 @@ function buttonEvent(e) {
         case "-":
         case "*":
         case "/":
-            if (notOperator() == true && displayValue.length != 0) {
+            //adds operator if not a repeat
+            if (notOperator() == true && displayValue.length != 0 || notOperator() == true && select == "-") {
                 displayValue.push(select);
+            //switches operator if repeat
             } else if (displayValue.length != 0) {
-                displayValue.pop();
-                displayValue.push(select);
+                //does not put in operator in first instance, except if - operator
+                if (!(displayValue.length == 1 && displayValue[0] == "-")) {
+                    displayValue.pop();
+                    displayValue.push(select); 
+                } else if (displayValue.length == 1 && displayValue[0] == "-") {
+                    displayValue.pop();
+                }
+                
             }
             break;
         
