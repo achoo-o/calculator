@@ -100,8 +100,8 @@ function calculate() {
                     sum = operate(sum, num[j+1], op[j]);
                 }  
             }
+            sum = Math.round(sum * 100)/100;
         }
-        sum = Math.round(sum * 100)/100;
         displayValue = sum.toString().split("");
     }
 }
