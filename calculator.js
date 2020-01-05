@@ -10,30 +10,39 @@ for (let i = 0; i < num.length; i++) {
 }
 
 function buttonEvent(e) {
-    if (e.target.value == '=') {
-        calculate();
-    } else if(e.target.value == "+" || e.target.value == "-" || e.target.value == "*" || e.target.value == "/") {
-        if (notOperator() == true && displayValue.length != 0) {
-            displayValue.push(e.target.value);
-        } else if (displayValue.length != 0) {
-            displayValue.pop();
-            displayValue.push(e.target.value);
-        }
-    } else if(e.target.value == ".") {
-        if (decimalRepeat() == false) {
-            displayValue.push(e.target.value);
-        }
-    } else if (e.target.value == "clear") {
-        displayValue = ["0",];
-    } else if (e.target.value == "<") {
-        //Erases most recent input
-        if (displayValue != "") {
-            displayValue.pop();
-        }
-    } else if (displayValue == '0' || displayValue == err) {
-        displayValue = [e.target.value,];
-    } else {
-        displayValue.push(e.target.value);
+    let select = e.target.value;
+    
+    switch (select) {
+        case "=":
+            calculate();
+            break;
+        
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            if (notOperator() == true && displayValue.length != 0) {
+                displayValue.push(select);
+            } else if (displayValue.length != 0) {
+                displayValue.pop();
+                displayValue.push(select);
+            }
+            break;
+        
+        case ".":
+            if (decimalRepeat() == false) {
+                displayValue.push(select);
+            }
+            break;
+        
+        case "clear": displayValue = ["0",];break;
+        
+        case "<": displayValue.pop(); break;
+        
+        default:
+            (displayValue == '0' || displayValue == err) ?
+                displayValue = [select,] :
+                displayValue.push(select);
     }
     changeDisplay(displayValue);
 }
