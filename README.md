@@ -11,7 +11,6 @@
 
 ### Issues
 
-* More than 1 decimal can be placed within a number
 * Errors occur when operator has no number before &/or after a number
 * +/- (change to pos/neg) (not coded & this may not be implemented)
 
