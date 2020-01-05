@@ -2,6 +2,7 @@ let display = document.getElementById("display");
 let num = document.getElementsByClassName("calcButton");
 let displayValue = [];
 let err = "Cannot be divided by 0";
+let operators = ["+","-","*","/"];
 let sum;
 
 for (let i = 0; i < num.length; i++) {
@@ -16,6 +17,10 @@ function buttonEvent(e) {
             displayValue.push(e.target.value);
         } else {
             displayValue.pop();
+            displayValue.push(e.target.value);
+        }
+    } else if(e.target.value == ".") {
+        if (decimalRepeat() == false) {
             displayValue.push(e.target.value);
         }
     } else if(e.target.value == "+/-") {
@@ -35,7 +40,6 @@ function buttonEvent(e) {
 }
 
 function notOperator() {
-    let operators = ["+","-","*","/"];
     
     for (let key in operators) {
         if (operators[key] == displayValue[displayValue.length - 1]) {
@@ -44,6 +48,19 @@ function notOperator() {
     }
     return true;
 }
+
+function decimalRepeat() {
+    let reverse = displayValue.slice().reverse();
+    for(let key in reverse) {
+        if (operators.includes(reverse[key])) {
+            break;
+        } else if (reverse[key] == ".") {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 function changeDisplay(toDisplay) {
     display.innerHTML = toDisplay.join("");
