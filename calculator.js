@@ -73,6 +73,11 @@ function calculate() {
     let i = 0;
     sum = 0;
     
+    //pops unneccessary operators at end of equation
+    if (operators.includes(displayValue[displayValue.length - 1])) {
+        displayValue.pop();
+    }
+    
     displayValue.forEach(x => {
         if (isNaN(x) == false || x == ".") {
             //check if arr empty && if index has changed i.e new number
