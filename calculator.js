@@ -23,7 +23,6 @@ function buttonEvent(e) {
         if (decimalRepeat() == false) {
             displayValue.push(e.target.value);
         }
-    } else if(e.target.value == "+/-") {
     } else if (e.target.value == "clear") {
         displayValue = ["0",];
     } else if (e.target.value == "<") {
