@@ -11,7 +11,7 @@
 
 ### Issues
 
-* Errors occur when operator has no number before &/or after a number
+* User cannot start with negative number unless there is a 0 preceding '-' operator
 * +/- (change to pos/neg) (not coded & this may not be implemented)
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
