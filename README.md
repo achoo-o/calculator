@@ -9,8 +9,4 @@
 - [x] Add CLEAR function
 - [ ] Add CSS
 
-### Issues
-
-* User cannot start with negative number unless there is a 0 preceding '-' operator
-
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
