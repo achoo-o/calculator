@@ -13,9 +13,9 @@ function buttonEvent(e) {
     if (e.target.value == '=') {
         calculate();
     } else if(e.target.value == "+" || e.target.value == "-" || e.target.value == "*" || e.target.value == "/") {
-        if (notOperator() == true) {
+        if (notOperator() == true && displayValue.length != 0) {
             displayValue.push(e.target.value);
-        } else {
+        } else if (displayValue.length != 0) {
             displayValue.pop();
             displayValue.push(e.target.value);
         }
