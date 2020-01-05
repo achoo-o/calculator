@@ -97,6 +97,7 @@ function calculate() {
                 }  
             }
         }
+        sum = Math.round(sum * 100)/100;
         displayValue = sum.toString().split("");
     }
 }
