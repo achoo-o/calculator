@@ -5,47 +5,41 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
         </head>
         <body>
-            <div grid>
-                <div id="display">0</div>
-                
-                <!-- 1st row -->
-                <div class = "firstRow">
-                    <button class="calcButton" value="clear">C</button>
+            <div id="container">
+                <div id="calculator">
+                    <div id="equation"></div>
+                    <div id="display">0</div>
+                    
+                    <!-- 1st row -->
+                    <button id="clear" class="calcButton" value="clear">C</button>
+                    <button class="calcButton" value="<">+/-</button>
                     <button class="calcButton" value="<"><</button>
                     <button class="calcButton" value="/">/</button>
-                </div>
-                
-                <!-- 2nd row -->
-                <div class = "secondRow">
+                    
+                    <!-- 2nd row -->
                     <button class="calcButton" value="7">7</button>
                     <button class="calcButton"value="8">8</button>
                     <button class="calcButton" value="9">9</button>
                     <button class="calcButton" value="*">x</button>    
-                </div>
-                
-                <!-- 3rd row -->
-                <div class = "thirdRow">
+                    
+                    <!-- 3rd row -->
                     <button class="calcButton" value="4">4</button>
                     <button class="calcButton" value="5">5</button>
                     <button class="calcButton" value="6">6</button>
                     <button class="calcButton" value="-">-</button>   
-                </div>
-                
-                <!-- 4th row -->
-                <div class = "fourthRow">
+                    
+                    <!-- 4th row -->
                     <button class="calcButton" value="1">1</button>
                     <button class="calcButton" value="2">2</button>
                     <button class="calcButton" value="3">3</button>
                     <button class="calcButton" value="+">+</button>    
-                </div>
-                
-                <!-- last row -->
-                <div class = "lastRow">
+                    
+                    <!-- last row -->
                     <button class="calcButton" value="0">0</button>
                     <button class="calcButton" value=".">.</button>
-                    <button class="calcButton" value="=">=</button>    
+                    <button class="calcButton" value="=">=</button>
+                    
                 </div>
-                
             </div>
             
             <script src="calculator.js"></script>
