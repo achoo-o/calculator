@@ -9,7 +9,7 @@
 - [x] Add CLEAR function
 - [x] Add CSS
 
-###Issues
+### Issues
 
 * Cannot multiply, divide, or add negative numbers due to only one operator being allowed
 
