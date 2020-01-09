@@ -1,15 +1,6 @@
 # Calculator
 
-## Work In Progress
-
 [Live link](https://achoo-o.github.io/calculator/)
-
-### To do
-
-- [x] Display answer in calculator
-- [x] Round decimal answers
-- [x] Add CLEAR function
-- [x] Add CSS
 
 ### Issues
 
