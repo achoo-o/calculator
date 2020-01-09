@@ -2,23 +2,55 @@ body {
     background-color: grey;
 }
 
-#grid {
-    display: grid;
+/* Mobile */
+@media screen and (max-width: 599px) {
+    
 }
 
-#display {
-    grid-row-start: 1;
-    height: 30px;
-}
+/* Computer */
+@media screen and (min-width: 600px) {
+    #container {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        background-color: yellow;
+    }
+    
+    #calculator {
+        display: grid;
+        grid-template-columns: repeat(4, 52px);
+        grid-template-rows: repeat(6, 52px);
+        background-color: lightBlue;
+        border-radius: 2px;
+        padding: 12px 12px 8px 12px;
+        min-width: 200px;
+    }
+    
+    #calculator button {
+        background-color: pink;
+        border: 1px solid white;
+        border-radius: 25px;
+        margin: 4px;
+    }
+    
+    input {
+        max-width: 52px;
+    }
+    
+    #equation {
+        background-color: lightGrey;
+        grid-column: 1 / span 4;
+    }
+    
+    #display {
+        background-color: lightGrey;
+        grid-column: 1 / span 4;
+        font-size: 50px;
+        text-align: right;
+        margin: 0;
+        padding: 0 5px;
+        
 
-.firstRow {
-    grid-row-start: 2;
-}
-
-.secondRow {
-    grid-row-start: 3;
-}
-
-.thirdRow {
-    grid-row-start: 4;
+    }
 }
