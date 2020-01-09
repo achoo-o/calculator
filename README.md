@@ -9,4 +9,8 @@
 - [x] Add CLEAR function
 - [x] Add CSS
 
+###Issues
+
+* Cannot multiply, divide, or add negative numbers due to only one operator being allowed
+
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
