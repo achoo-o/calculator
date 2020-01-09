@@ -7,6 +7,6 @@
 - [x] Display answer in calculator
 - [x] Round decimal answers
 - [x] Add CLEAR function
-- [ ] Add CSS
+- [x] Add CSS
 
 From The Odin Project's [curriculum](https://www.theodinproject.com/lessons/calculator)
