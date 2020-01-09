@@ -7,11 +7,13 @@
         <body>
             <div id="container">
                 <div id="calculator">
-                    <div id="display">0</div>
+                    <div id="displayWrapper">
+                        <br id="br">
+                        <div id="display">0</div>
+                    </div>
                     
                     <!-- 1st row -->
                     <button id="clear" class="calcButton" value="clear">C</button>
-                    <button class="calcButton" value="<">+/-</button>
                     <button class="calcButton" value="<"><</button>
                     <button class="calcButton" value="/">/</button>
                     
@@ -34,7 +36,7 @@
                     <button class="calcButton" value="+">+</button>    
                     
                     <!-- last row -->
-                    <button class="calcButton" value="0">0</button>
+                    <button id="zero" class="calcButton" value="0">0</button>
                     <button class="calcButton" value=".">.</button>
                     <button class="calcButton" value="=">=</button>
                     
