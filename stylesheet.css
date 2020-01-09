@@ -1,56 +1,76 @@
 body {
-    background-color: grey;
+    background-color: #2e2e2e;
 }
 
-/* Mobile */
-@media screen and (max-width: 599px) {
-    
+#container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-top: 75px;
 }
 
-/* Computer */
-@media screen and (min-width: 600px) {
-    #container {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        background-color: yellow;
-    }
-    
-    #calculator {
-        display: grid;
-        grid-template-columns: repeat(4, 52px);
-        grid-template-rows: repeat(6, 52px);
-        background-color: lightBlue;
-        border-radius: 2px;
-        padding: 12px 12px 8px 12px;
-        min-width: 200px;
-    }
-    
-    #calculator button {
-        background-color: pink;
-        border: 1px solid white;
-        border-radius: 25px;
-        margin: 4px;
-    }
-    
-    input {
-        max-width: 52px;
-    }
-    
-    #equation {
-        background-color: lightGrey;
-        grid-column: 1 / span 4;
-    }
-    
-    #display {
-        background-color: lightGrey;
-        grid-column: 1 / span 4;
-        font-size: 50px;
-        text-align: right;
-        margin: 0;
-        padding: 0 5px;
-        
+#calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: 1fr repeat(5, 75px);
+    background-color: #1c1c1c;
+    min-width: 200px;
+}
 
-    }
+#calculator button {
+    background-color: #e8e8e8;
+    border: none;
+    font-size: 20px;
+}
+
+#calculator button:hover {
+    background-color: #a7ebd7;
+}
+
+#displayWrapper {
+    background-color: lightGrey;
+    grid-column: 1 / span 4;
+    text-align: right;
+    margin: 0;
+    padding: 0 5px;
+    text-align: right;
+    min-height: 75px;
+    max-height: 75px;
+    overflow-y: scroll;
+    
+    /*Firefox scroll*/
+    scrollbar-color: #a7ebd7 lightGrey;
+    scrollbar-width: thin;
+}
+
+/************** SCROLL **************/
+
+#displayWrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+#displayWrapper::-webkit-scrollbar-track {
+    background-color: lightGrey;
+    border-radius: 10px;
+}
+
+#displayWrapper::-webkit-scrollbar-thumb {
+    background-color: #a7ebd7;
+    border-radius: 10px;
+}
+
+/************ SCROLL END ************/
+
+#display {
+    font-size: 40px;
+    overflow-wrap: break-word;
+}
+
+#clear {
+    grid-column: 1 / span 2; 
+}
+
+#zero {
+    grid-column: 1 / span 2;
 }
