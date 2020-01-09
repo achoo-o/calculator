@@ -12,51 +12,71 @@ for (let i = 0; i < num.length; i++) {
 function buttonEvent(e) {
     let select = e.target.value;
     
-    switch (select) {
-        case "=":
-            calculate();
-            break;
-        
-        case "+":
-        case "-":
-        case "*":
-        case "/":
-            //adds operator if not a repeat
-            if (notOperator() == true && displayValue.length != 0 || notOperator() == true && select == "-") {
-                displayValue.push(select);
-            //switches operator if repeat
-            } else if (displayValue.length != 0) {
-                //does not put in operator in first instance, except if - operator
-                if (!(displayValue.length == 1 && displayValue[0] == "-")) {
-                    displayValue.pop();
-                    displayValue.push(select); 
-                } else if (displayValue.length == 1 && displayValue[0] == "-") {
-                    displayValue.pop();
+    if(isNaN(select) == true || numShort(select) == true) {
+        switch (select) {
+            case "=":
+                calculate();
+                break;
+            
+            case "+":
+            case "-":
+            case "*":
+            case "/":
+                //adds operator if not a repeat
+                if (notOperator() == true && displayValue.length != 0 || notOperator() == true && select == "-") {
+                    displayValue.push(select);
+                //switches operator if repeat
+                } else if (displayValue.length != 0) {
+                    //does not put in operator in first instance, except if - operator
+                    if (!(displayValue.length == 1 && displayValue[0] == "-")) {
+                        displayValue.pop();
+                        displayValue.push(select); 
+                    } else if (displayValue.length == 1 && displayValue[0] == "-") {
+                        displayValue.pop();
+                    }
+                    
                 }
-                
-            }
-            break;
-        
-        case ".":
-            if (decimalRepeat() == false) {
-                displayValue.push(select);
-            }
-            break;
-        
-        case "clear": displayValue = ["0",];break;
-        
-        case "<": displayValue.pop(); break;
-        
-        default:
-            (displayValue == '0' || displayValue == err) ?
-                displayValue = [select,] :
-                displayValue.push(select);
+                break;
+            
+            case ".":
+                if (decimalRepeat() == false) {
+                    displayValue.push(select);
+                }
+                break;
+            
+            case "clear": displayValue = ["0",];break;
+            
+            case "<": displayValue.pop(); break;
+            
+            default:
+                (displayValue == '0' || displayValue == err) ?
+                    displayValue = [select,] :
+                    displayValue.push(select);
+        }
+        changeDisplay(displayValue);
     }
-    changeDisplay(displayValue);
 }
 
+//checks if number exceeds 15 digits
+function numShort() {
+    let reverse = displayValue.slice().reverse();
+    let length = 0;
+    for(let key in reverse) {
+        if (operators.includes(reverse[key])) {
+            break;
+        } else if (reverse[key] != ".") {
+            length+= 1;
+            if (length == 15) {
+                alert("Max digits allowed: 15")
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+//checks if most recent input is an operator
 function notOperator() {
-    
     for (let key in operators) {
         if (operators[key] == displayValue[displayValue.length - 1]) {
             return false;
@@ -65,6 +85,7 @@ function notOperator() {
     return true;
 }
 
+//checks if there is already a decimal in a number
 function decimalRepeat() {
     let reverse = displayValue.slice().reverse();
     for(let key in reverse) {
@@ -77,9 +98,24 @@ function decimalRepeat() {
     return false;
 }
 
+/* This will insert a <br> tag if the displayValue is forced to newline due to length (15 characters).
+ * It will get rid of the <br> tag if it only takes up a single line
+ * This is purely for user display purposes */
+function lengthCheck() {
+    let displayWrapper = document.getElementById("displayWrapper");
+    let br = document.getElementById("br");
+    if (displayValue.length >= 15 && br != null) {
+        displayWrapper.removeChild(br);
+    } else if (displayValue.length < 15 && !br) {
+        let br = document.createElement("br");
+        br.setAttribute("id", "br");
+        displayWrapper.insertBefore(br, display);
+    }
+}
 
 function changeDisplay(toDisplay) {
     display.innerHTML = toDisplay.join("");
+    lengthCheck();
 }
 
 //sorts user input & calculates ans
