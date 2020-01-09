@@ -2,6 +2,8 @@
 
 ## Work In Progress
 
+[Live link](https://achoo-o.github.io/calculator/)
+
 ### To do
 
 - [x] Display answer in calculator
