@@ -6,6 +6,7 @@
 
 * Cannot multiply, divide, or add negative numbers due to only one operator being allowed
 * Does not follow order of operations
+* Looks awful on Opera and who knows what else
 
 Javascript code could be more concise. Will work towards that goal as I continue
 
